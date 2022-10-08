@@ -5,11 +5,13 @@ import io.cucumber.java.Before;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 
 public class Hooks {
     public static WebDriver driver;
 
-    @Before
+    @BeforeMethod
     public void beforeScenario() {
         System.out.println("This will run before the scenario");
         WebDriverManager.chromedriver().setup();
@@ -17,7 +19,7 @@ public class Hooks {
         driver.manage().window().maximize();
     }
 
-    @After
+    @AfterMethod
     public void afterTearDown() {
         System.out.println("This will run after scenario!!");
         driver.quit();
