@@ -1,4 +1,4 @@
-package stepdefinitions;
+package browsers.stepdefinitions;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;

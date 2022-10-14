@@ -1,4 +1,4 @@
-package stepdefinitions;
+package browsers.stepdefinitions;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -9,7 +9,7 @@ import page_objects.CheckoutPage;
 import page_objects.ErrorPageAfterAbout;
 import page_objects.ProductsPage;
 
-import static stepdefinitions.Hooks.driver;
+import static browsers.stepdefinitions.Hooks.driver;
 
 public class ShoppingCartSteps {
 
