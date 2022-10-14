@@ -9,7 +9,7 @@ import page_objects.Application;
 import page_objects.LoginPage;
 import page_objects.ProductsPage;
 
-import static stepdefinitions.Hooks.driver;
+import static browsers.stepdefinitions.Hooks.driver;
 
 public class LoginSteps {
     LoginPage loginPage = new LoginPage(driver);

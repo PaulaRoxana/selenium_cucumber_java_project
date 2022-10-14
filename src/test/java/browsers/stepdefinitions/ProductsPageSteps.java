@@ -9,7 +9,7 @@ import page_objects.ProductsPage;
 
 import java.time.Duration;
 
-import static stepdefinitions.Hooks.driver;
+import static browsers.stepdefinitions.Hooks.driver;
 
 public class ProductsPageSteps {
     ProductsPage productsPage = new ProductsPage(driver);
