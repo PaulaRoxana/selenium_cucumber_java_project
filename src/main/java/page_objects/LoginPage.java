@@ -4,14 +4,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class LoginPage {
-    private final WebDriver driver;
-    private static final By usernameInput = By.id("user-name");
-    private static final By passwordInput = By.id("password");
-    private static final By loginBtn = By.id("login-button");
-    private static final By errorMessageElement= By.cssSelector("h3[data-test='error']");
-    private static final String errorMessageForIncorrectUsernameOrPassword = "Epic sadface: Username and password do not match any user in this service";
-    private static final String errorMessageForMissingUsername = "Epic sadface: Username is required";
-    private static final String errorMessageForMissingPassword = "Epic sadface: Password is required";
+    private WebDriver driver;
+    private By usernameInput = By.id("user-name");
+    private By passwordInput = By.id("password");
+    private By loginBtn = By.id("login-button");
+    private By errorMessageElement= By.cssSelector("h3[data-test='error']");
+    private String errorMessageForIncorrectUsernameOrPassword = "Epic sadface: Username and password do not match any user in this service";
+    private String errorMessageForMissingUsername = "Epic sadface: Username is required";
+    private String errorMessageForMissingPassword = "Epic sadface: Password is required";
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;

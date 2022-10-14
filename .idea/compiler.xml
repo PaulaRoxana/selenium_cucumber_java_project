@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="selenium_cucumber_java_project" target="18" />
+      <module name="selenium_cucumber_java_project" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

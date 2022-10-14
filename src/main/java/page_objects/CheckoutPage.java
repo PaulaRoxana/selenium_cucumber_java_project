@@ -4,8 +4,8 @@ package page_objects;
 import org.openqa.selenium.WebDriver;
 
 public class CheckoutPage {
-    private final WebDriver driver;
-    private static final String checkoutPageURL = "https://www.saucedemo.com/checkout-step-one.html";
+    private WebDriver driver;
+    private String checkoutPageURL = "https://www.saucedemo.com/checkout-step-one.html";
     public CheckoutPage(WebDriver driver) {
         this.driver = driver;
     }

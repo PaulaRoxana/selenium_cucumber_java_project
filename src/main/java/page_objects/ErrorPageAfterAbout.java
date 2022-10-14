@@ -3,8 +3,8 @@ package page_objects;
 import org.openqa.selenium.WebDriver;
 
 public class ErrorPageAfterAbout {
-    private final WebDriver driver;
-    private static final String currentURL = "https://saucelabs.com/error/404";
+    private WebDriver driver;
+    private String currentURL = "https://saucelabs.com/error/404";
     public ErrorPageAfterAbout(WebDriver driver) {
         this.driver = driver;
     }
