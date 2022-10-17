@@ -1,7 +1,7 @@
 Feature: Shopping Cart tests
 
   Background: Login to Products Page
-    Given Open the Saucedemo web page
+    Given  The User is on "Login Page"
     And Fill the Username field with username "standard_user"
     And Fill the Password field with password "secret_sauce"
     And Click on LOGIN button

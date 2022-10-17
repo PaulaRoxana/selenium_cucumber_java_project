@@ -1,47 +1,59 @@
 package browsers.stepdefinitions;
 
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import page_objects.Application;
 import page_objects.LoginPage;
-import page_objects.ProductsPage;
+import page_objects.HomePage;
 
-import static browsers.stepdefinitions.Hooks.driver;
+import static browsers.stepdefinitions.BaseSteps.PAGES_STORAGE;
+import static browsers.stepdefinitions.BaseSteps.driver;
+//import static browsers.stepdefinitions.Hooks.driver;
 
 public class LoginSteps {
     LoginPage loginPage = new LoginPage(driver);
-    ProductsPage productsPage = new ProductsPage(driver);
+    HomePage homePage = new HomePage(driver);
 
-
-    @Given("Open the Saucedemo web page")
-    public void openTheSaucedemoWebPage() {
-        loginPage = new Application(driver).navigateToLoginPage();
-    }
-
-    @When("Fill the Username field with username {string}")
-    public void fillTheUsernameFieldWithCorrectUsername(String text) {
-        loginPage.fillUsername(text);
+    @Given("The User is on {string}")
+    public void theUserIsOnLoginPage(String pageName) {
+        LoginPage loginPage = new LoginPage(driver);
+        PAGES_STORAGE.put(pageName, loginPage);
+        loginPage.open();
 
     }
-
-    @And("Fill the Password field with password {string}")
-    public void fillThePasswordFieldWithCorrectPassword(String text) {
-        loginPage.fillPassword(text);
+    @When("User enters {string} and {string} on {string}")
+    public void userEntersCorrectUsernameAndPasswordOn(String username, String password, String pageName) {
+        PAGES_STORAGE.put("Home Page", ((LoginPage) PAGES_STORAGE.get(pageName))
+                .loginWithCorrectUsernameAndPassword(username, password));
     }
 
-    @And("Click on LOGIN button")
-    public void clickOnLOGINButton() {
-        loginPage.submit();
+    @Then("User is navigated on {string}")
+    public HomePage userIsNavigatedOn(String pageName) {
+        return new HomePage(driver);
     }
 
-    @Then("Validate the error message for incorrect Username and or Password is correct")
-    public void validateTheErrorMessageForIncorrectUsernameAndOrPasswordIsCorrect() {
 
-        Assert.assertTrue(loginPage.getErrorMessageForIncorrectUsernameOrPassword()
+    @When("User enters incorrect {string} and-or incorrect {string} on {string}")
+    public void userEntersIncorrectUsernameOrIncorrectPasswordOn(String username, String password, String pageName) {
+        ((LoginPage) PAGES_STORAGE.get(pageName)).fillIncorrectData(username, password);
+    }
+
+
+    @Then("Validate the error message for incorrect Username and-or incorrect Password")
+    public void validateTheErrorMessageForIncorrectUsernameAndOrIncorrectPassword() {
+        Assert.assertTrue(loginPage.getErrorMessageForIncorrectUsernameAndOrPassword()
                 .contains("Epic sadface: Username and password do not match any user in this service"));
+    }
+
+    @When("User enters no {string} and {string} on {string}")
+    public void userEntersNoUsernameOrNoPasswordOn(String username, String password, String pageName) {
+        ((LoginPage) PAGES_STORAGE.get(pageName)).fillIncorrectData(username, password);
+    }
+
+    @When("User enters {string} and no {string} on {string}")
+    public void userEntersAndNoOn(String username, String password, String pageName) {
+        ((LoginPage) PAGES_STORAGE.get(pageName)).fillIncorrectData(username, password);
     }
 
     @Then("Validate the error message for missing Username is correct")
@@ -54,6 +66,4 @@ public class LoginSteps {
     public void validateTheErrorMessageForMissingPasswordIsCorrect() {
         Assert.assertTrue(loginPage.getErrorMessageForMissingPassword().contains("Epic sadface: Password is required"));
     }
-
-
 }

@@ -9,17 +9,17 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class Hooks {
     public static WebDriver driver;
 
-    @Before
-    public void beforeScenario() {
-        System.out.println("This will run before the scenario");
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-    }
-
-    @After
-    public void afterTearDown() {
-        System.out.println("This will run after scenario!!");
-        driver.quit();
-    }
+//    @Before
+//    public void beforeScenario() {
+//        System.out.println("This will run before the scenario");
+//      //  WebDriverManager.chromedriver().setup();
+//      //  driver = new ChromeDriver();
+//       // driver.manage().window().maximize();
+//    }
+//
+//    @After
+//    public void afterTearDown() {
+//        System.out.println("This will run after scenario!!");
+//      //  driver.quit();
+//    }
 }

@@ -7,20 +7,20 @@ import org.junit.Assert;
 import page_objects.CartPage;
 import page_objects.CheckoutPage;
 import page_objects.ErrorPageAfterAbout;
-import page_objects.ProductsPage;
+import page_objects.HomePage;
 
 import static browsers.stepdefinitions.Hooks.driver;
 
 public class ShoppingCartSteps {
 
-    ProductsPage productsPage = new ProductsPage(driver);
+    HomePage homePage = new HomePage(driver);
     ErrorPageAfterAbout errorPageAfterAbout = new ErrorPageAfterAbout(driver);
     CartPage cartPage = new CartPage(driver);
     CheckoutPage checkoutPage = new CheckoutPage(driver);
 
     @When("Add one product to the shopping cart")
     public void addOneProductToTheShoppingCart() {
-        productsPage.addOneProductToCart();
+        homePage.addOneProductToCart();
     }
     @And("Click on checkout button")
     public void clickOnCheckoutButton() {
@@ -32,7 +32,7 @@ public class ShoppingCartSteps {
     }
     @And("Add a second product to the shopping cart")
     public void addASecondProductToTheShoppingCart() {
-        productsPage.addASecondProductToCart();
+        homePage.addASecondProductToCart();
     }
     @Then("Validate that the cart contains the exact number of products added")
     public void validateThatTheCartContainsTheExactNumberOfProductsAdded() {
