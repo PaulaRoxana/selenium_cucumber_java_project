@@ -9,7 +9,9 @@ import page_objects.CheckoutPage;
 import page_objects.SauceLabPage;
 import page_objects.HomePage;
 
-import static browsers.stepdefinitions.Hooks.driver;
+import static browsers.stepdefinitions.BaseSteps.driver;
+
+//import static browsers.stepdefinitions.Hooks.driver;
 
 public class ShoppingCartSteps {
 
@@ -45,5 +47,9 @@ public class ShoppingCartSteps {
     @Then("Validate that checkout button is not active")
     public void validateThatCheckoutButtonIsNotActive() {
         cartPage.checkoutButtonNotActiveWhenIsEmptyCart();
+    }
+
+    @Then("Validate that checkout button is active")
+    public void validateThatCheckoutButtonIsActive() {
     }
 }

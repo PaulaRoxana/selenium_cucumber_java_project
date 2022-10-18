@@ -7,9 +7,9 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 public class CartPage extends BasePage {
-    private WebDriver driver;
-    private By checkoutButton = By.id("checkout");
-    private By cartQuantityOfAddedProducts = By.cssSelector(".cart_quantity");
+    private final WebDriver driver;
+    private final By checkoutButton = By.id("checkout");
+    private final By cartQuantityOfAddedProducts = By.cssSelector(".cart_quantity");
 
     public CartPage(WebDriver driver) {
         super(driver);
