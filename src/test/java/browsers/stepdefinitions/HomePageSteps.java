@@ -16,7 +16,6 @@ public class HomePageSteps {
     HomePage homePage = new HomePage(driver);
     SauceLabPage sauceLabPage = new SauceLabPage(driver);
 
-
     @When("Click on the menu button")
     public void clickOnTheMenuButton() {
         homePage.clickOnMenuButton();
@@ -51,11 +50,6 @@ public class HomePageSteps {
     public void clickOnLOGOUTOption() {
         homePage.clickLOGOUTOption();
     }
-//    @Then("Check you are on an error page")
-//    public void checkYouAreOnAnErrorPage() {
-//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-//        Assert.assertEquals(errorPageAfterAbout.getCurrentURL(), driver.getCurrentUrl());
-//    }
     @And("Click on RESET APP STATE option")
     public void clickOnRESETAPPSTATEOption() {
         homePage.clickRESETAPPSTATEOption();
@@ -68,18 +62,14 @@ public class HomePageSteps {
     public void checkUserIsNavigatedOnHomePage(String pageName) {
         Assert.assertEquals(homePage.getCurrentURL(), driver.getCurrentUrl());
     }
-
     @Then("Check User remains on Home Page")
     public void checkUserRemainsOnHomePage() {
         Assert.assertEquals(homePage.getCurrentURL(), driver.getCurrentUrl());
     }
-
     @Then("Validate User is redirected to Login Page")
     public LoginPage validateUserIsRedirectedToLoginPage() {
         return new LoginPage(driver);
     }
-
-
     @Then("Check the USER is redirected to {string}")
     public void checkTheUSERIsRedirectedToSauceLabPage(String currentURL) {
         Assert.assertEquals(sauceLabPage.getCurrentURL(), currentURL);
