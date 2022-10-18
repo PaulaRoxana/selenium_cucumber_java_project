@@ -2,10 +2,11 @@ package page_objects;
 
 import org.openqa.selenium.WebDriver;
 
-public class ErrorPageAfterAbout extends BasePage {
-    private WebDriver driver;
-    private String currentURL = "https://saucelabs.com/error/404";
-    public ErrorPageAfterAbout(WebDriver driver) {
+public class SauceLabPage extends BasePage {
+    private final WebDriver driver;
+
+
+    public SauceLabPage(WebDriver driver) {
         super(driver);
         this.driver = driver;
     }
@@ -13,6 +14,7 @@ public class ErrorPageAfterAbout extends BasePage {
         return driver;
     }
     public String getCurrentURL() {
-        return currentURL;
+        return "https://saucelabs.com/";
+        //https://saucelabs.com/error/404
     }
 }

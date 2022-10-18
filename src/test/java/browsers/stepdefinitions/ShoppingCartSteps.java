@@ -6,7 +6,7 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import page_objects.CartPage;
 import page_objects.CheckoutPage;
-import page_objects.ErrorPageAfterAbout;
+import page_objects.SauceLabPage;
 import page_objects.HomePage;
 
 import static browsers.stepdefinitions.Hooks.driver;
@@ -14,7 +14,7 @@ import static browsers.stepdefinitions.Hooks.driver;
 public class ShoppingCartSteps {
 
     HomePage homePage = new HomePage(driver);
-    ErrorPageAfterAbout errorPageAfterAbout = new ErrorPageAfterAbout(driver);
+    SauceLabPage errorPageAfterAbout = new SauceLabPage(driver);
     CartPage cartPage = new CartPage(driver);
     CheckoutPage checkoutPage = new CheckoutPage(driver);
 

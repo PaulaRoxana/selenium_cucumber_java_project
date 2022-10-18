@@ -5,7 +5,7 @@ Feature: Home page tests
     And User enters username "standard_user" and password "secret_sauce" on "Login Page"
     Then Check User is navigated on "Home Page"
 
-  # POSITIVE TESTS -> 5 TCs
+  # POSITIVE TESTS
   Scenario: Click on the menu button and validate the number and the names of the options unfolded
     When Click on the menu button
     Then Validate that there are four options unfolded
@@ -30,9 +30,8 @@ Feature: Home page tests
     And Click on RESET APP STATE option
     Then Check User remains on Home Page
 
-# NEGATIVE TESTS -> 1 TC
-  Scenario: Validate that when clicking on ABOUT option you are redirected to an error page
+  Scenario: Validate that when clicking on ABOUT option the USER is redirected to "https://saucelabs.com/"
     When Click on the menu button
     And Click on ABOUT option
-    Then Check you are on an error page
+    Then Check the USER is redirected to "https://saucelabs.com/"
 

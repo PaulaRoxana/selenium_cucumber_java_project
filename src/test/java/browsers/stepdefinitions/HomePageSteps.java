@@ -4,7 +4,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import page_objects.ErrorPageAfterAbout;
+import page_objects.SauceLabPage;
 import page_objects.HomePage;
 import page_objects.LoginPage;
 
@@ -14,7 +14,7 @@ import static browsers.stepdefinitions.BaseSteps.driver;
 
 public class HomePageSteps {
     HomePage homePage = new HomePage(driver);
-    ErrorPageAfterAbout errorPageAfterAbout = new ErrorPageAfterAbout(driver);
+    SauceLabPage sauceLabPage = new SauceLabPage(driver);
 
 
     @When("Click on the menu button")
@@ -51,11 +51,11 @@ public class HomePageSteps {
     public void clickOnLOGOUTOption() {
         homePage.clickLOGOUTOption();
     }
-    @Then("Check you are on an error page")
-    public void checkYouAreOnAnErrorPage() {
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        Assert.assertEquals(errorPageAfterAbout.getCurrentURL(), driver.getCurrentUrl());
-    }
+//    @Then("Check you are on an error page")
+//    public void checkYouAreOnAnErrorPage() {
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+//        Assert.assertEquals(errorPageAfterAbout.getCurrentURL(), driver.getCurrentUrl());
+//    }
     @And("Click on RESET APP STATE option")
     public void clickOnRESETAPPSTATEOption() {
         homePage.clickRESETAPPSTATEOption();
@@ -71,7 +71,7 @@ public class HomePageSteps {
 
     @Then("Check User remains on Home Page")
     public void checkUserRemainsOnHomePage() {
-        Assert.assertEquals(homePage.getCurrentURL(), driver.getCurrentUrl());;
+        Assert.assertEquals(homePage.getCurrentURL(), driver.getCurrentUrl());
     }
 
     @Then("Validate User is redirected to Login Page")
@@ -80,5 +80,8 @@ public class HomePageSteps {
     }
 
 
-
+    @Then("Check the USER is redirected to {string}")
+    public void checkTheUSERIsRedirectedToSauceLabPage(String currentURL) {
+        Assert.assertEquals(sauceLabPage.getCurrentURL(), currentURL);
+    }
 }
