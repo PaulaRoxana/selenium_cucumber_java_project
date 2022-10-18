@@ -12,16 +12,15 @@ import java.util.List;
 
 public class HomePage extends BasePage {
     private WebDriver driver;
-     private String currentURL = "https://www.saucedemo.com/inventory.html";
-    private By menuButton = By.cssSelector("#react-burger-menu-btn");
-    private By unwrappedMenu = By.cssSelector(".bm-item.menu-item");
-    private By allItemsOption = By.cssSelector("#inventory_sidebar_link");
-    private By logoutOption = By.cssSelector("#logout_sidebar_link");
-    private By aboutOption = By.cssSelector("#about_sidebar_link");
-    private By resetAppStateOption = By.cssSelector("#reset_sidebar_link");
-     private By shoppingCartButton =  By.cssSelector("#shopping_cart_container");
-     private By addBackpackToCart= By.cssSelector("#add-to-cart-sauce-labs-backpack");
-     private By addBikeLight = By.cssSelector("#add-to-cart-sauce-labs-bike-light");
+    private final By menuButton = By.cssSelector("#react-burger-menu-btn");
+    private final By unwrappedMenu = By.cssSelector(".bm-item.menu-item");
+    private final By allItemsOption = By.cssSelector("#inventory_sidebar_link");
+    private final By logoutOption = By.cssSelector("#logout_sidebar_link");
+    private final By aboutOption = By.cssSelector("#about_sidebar_link");
+    private final By resetAppStateOption = By.cssSelector("#reset_sidebar_link");
+     private final By shoppingCartButton =  By.cssSelector("#shopping_cart_container");
+     private final By addBackpackToCart= By.cssSelector("#add-to-cart-sauce-labs-backpack");
+     private final By addBikeLight = By.cssSelector("#add-to-cart-sauce-labs-bike-light");
 
 
     public HomePage(WebDriver driver) {
@@ -32,7 +31,7 @@ public class HomePage extends BasePage {
         return driver;
     }
     public String getCurrentURL() {
-        return currentURL;
+        return "https://www.saucedemo.com/inventory.html";
     }
     public By getMenuButton() {
         return menuButton;

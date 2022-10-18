@@ -1,11 +1,9 @@
-Feature: Product page tests
+Feature: Home page tests
 
   Background: Login to Products Page
     Given The User is on "Login Page"
-    And Fill the Username field with username "standard_user"
-    And Fill the Password field with password "secret_sauce"
-    And Click on LOGIN button
-    Then Check you are on Products Page
+    And User enters username "standard_user" and password "secret_sauce" on "Login Page"
+    Then Check User is navigated on "Home Page"
 
   # POSITIVE TESTS -> 5 TCs
   Scenario: Click on the menu button and validate the number and the names of the options unfolded

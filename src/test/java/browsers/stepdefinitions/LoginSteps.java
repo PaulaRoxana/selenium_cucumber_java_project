@@ -1,5 +1,6 @@
 package browsers.stepdefinitions;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -13,7 +14,6 @@ import static browsers.stepdefinitions.BaseSteps.driver;
 
 public class LoginSteps {
     LoginPage loginPage = new LoginPage(driver);
-    HomePage homePage = new HomePage(driver);
 
     @Given("The User is on {string}")
     public void theUserIsOnLoginPage(String pageName) {
@@ -65,5 +65,11 @@ public class LoginSteps {
     @Then("Validate the error message for missing Password is correct")
     public void validateTheErrorMessageForMissingPasswordIsCorrect() {
         Assert.assertTrue(loginPage.getErrorMessageForMissingPassword().contains("Epic sadface: Password is required"));
+    }
+
+    @And("User enters username {string} and password {string} on {string}")
+    public void userEntersUsernameAndPasswordOnLoginPage(String username, String password, String pageName) {
+        PAGES_STORAGE.put("Home Page", ((LoginPage) PAGES_STORAGE.get(pageName))
+                .loginWithCorrectUsernameAndPassword(username, password));
     }
 }
