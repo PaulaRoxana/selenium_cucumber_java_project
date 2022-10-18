@@ -6,22 +6,20 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import page_objects.ErrorPageAfterAbout;
 import page_objects.HomePage;
+import page_objects.LoginPage;
 
 import java.time.Duration;
 
-import static browsers.stepdefinitions.Hooks.driver;
+import static browsers.stepdefinitions.BaseSteps.driver;
 
-public class ProductsPageSteps {
+public class HomePageSteps {
     HomePage homePage = new HomePage(driver);
     ErrorPageAfterAbout errorPageAfterAbout = new ErrorPageAfterAbout(driver);
 
-    @Then("Check you are on Products Page")
-    public void checkYouAreOnProductsPage() {
-        Assert.assertEquals(homePage.getCurrentURL(), driver.getCurrentUrl());
-    }
+
     @When("Click on the menu button")
     public void clickOnTheMenuButton() {
-        homePage.clickOnMenuButon();
+        homePage.clickOnMenuButton();
     }
     @Then("Validate that there are four options unfolded")
     public void validateThatThereAreFourOptionsUnfolded() {
@@ -37,16 +35,17 @@ public class ProductsPageSteps {
         Assert.assertEquals("RESET APP STATE", homePage.getUnfoldedOptions().get(3).getText());
     }
     @And("Click on ALL ITEMS option")
-    public void clickOnALLITEMSOption() {
-        homePage.clickALLITEMSOption();
+    public HomePage clickOnALLITEMSOptionFromMENU() {
+        homePage.clickALLITEMSOptionFromMenu();
+        return new HomePage(driver);
     }
     @And("Click on ABOUT option")
     public void clickOnABOUTOption() {
         homePage.clickABOUTOption();
     }
-    @Then("Validate that the LOGOUT option is diplayed")
-    public void validateThatTheLOGOUTOptionIsDiplayed() {
-        Assert.assertTrue(homePage.isTheLOGOUTOptionIsDiplayed());
+    @Then("Validate that the LOGOUT option is displayed")
+    public void validateThatTheLOGOUTOptionIsDisplayed() {
+        Assert.assertTrue(homePage.isTheLOGOUTOptionIsDisplayed());
     }
     @And("Click on LOGOUT option")
     public void clickOnLOGOUTOption() {
@@ -65,5 +64,21 @@ public class ProductsPageSteps {
     public void clickOnShoppingCartButton() {
         homePage.clickTheShoppingCartButton();
     }
+    @Then("Check User is navigated on {string}")
+    public void checkUserIsNavigatedOnHomePage(String pageName) {
+        Assert.assertEquals(homePage.getCurrentURL(), driver.getCurrentUrl());
+    }
+
+    @Then("Check User remains on Home Page")
+    public void checkUserRemainsOnHomePage() {
+        Assert.assertEquals(homePage.getCurrentURL(), driver.getCurrentUrl());;
+    }
+
+    @Then("Validate User is redirected to Login Page")
+    public LoginPage validateUserIsRedirectedToLoginPage() {
+        return new LoginPage(driver);
+    }
+
+
 
 }

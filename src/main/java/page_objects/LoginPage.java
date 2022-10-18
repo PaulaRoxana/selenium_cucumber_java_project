@@ -39,8 +39,10 @@ public class LoginPage extends BasePage {
     public void fillPassword(String password) {
         passwordInput.sendKeys(password);
     }
-    public void submit() {
+
+    public HomePage submit() {
         loginBtn.click();
+        return new HomePage(driver);
     }
 
     public LoginPage open() {
