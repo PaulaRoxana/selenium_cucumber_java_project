@@ -4,7 +4,8 @@ Feature: Login tests
     Given The User is on "Login Page"
 
 # SMOKE (HAPPY FLOW) -> 1TC
- @SmokeTest
+
+ @Regression
   Scenario Outline: Login with correct Username and correct Password
     When User enters "<correctUsername>" and "<correctPassword>" on "Login Page"
     Then User is navigated on "Home Page"
@@ -33,7 +34,7 @@ Feature: Login tests
       | 1234              | =               |
       | dgtshx            | 643w654w654w    |
 
-  @NegativeTest
+ @NegativeTest
   Scenario Outline: (Try to) login with missing Username
     When User enters no "<username>" and "<password>" on "Login Page"
     Then Validate the error message for missing Username is correct

@@ -5,7 +5,7 @@ Feature: Home page tests
     And User enters username "standard_user" and password "secret_sauce" on "Login Page"
     Then Check User is navigated on "Home Page"
 
-  # POSITIVE TESTS
+ @Smoke
   Scenario: Click on the menu button and validate the number and the names of the options unfolded
     When Click on the menu button
     Then Validate that there are four options unfolded

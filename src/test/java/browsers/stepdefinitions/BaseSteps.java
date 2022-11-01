@@ -18,8 +18,8 @@ public class BaseSteps {
     }
     @After
     public void afterScenario() {
-        driver.close();
-      //  driver.quit();
+      //  driver.close();
+        driver.quit();
         PAGES_STORAGE.clear();
     }
 }

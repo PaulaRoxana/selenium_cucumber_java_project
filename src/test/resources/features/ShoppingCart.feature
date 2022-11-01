@@ -4,7 +4,7 @@ Feature: Shopping Cart tests
     Given The User is on "Login Page"
     And User enters username "standard_user" and password "secret_sauce" on "Login Page"
     Then Check User is navigated on "Home Page"
-
+@Smoke @Regression
   Scenario: Validate that the checkout button is active only after adding at least 1 product to the shopping cart
     When Add one product to the shopping cart
     And Click on shopping cart button
