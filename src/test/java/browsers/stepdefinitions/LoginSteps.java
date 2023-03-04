@@ -10,7 +10,7 @@ import page_objects.HomePage;
 
 import static browsers.stepdefinitions.BaseSteps.PAGES_STORAGE;
 import static browsers.stepdefinitions.BaseSteps.driver;
-//import static browsers.stepdefinitions.Hooks.driver;
+
 
 public class LoginSteps {
     LoginPage loginPage = new LoginPage(driver);
